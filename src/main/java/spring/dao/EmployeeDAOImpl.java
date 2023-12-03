@@ -17,7 +17,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     private EntityManager entityManager;
 
     // set up constructor injection
-    @Autowired
     public EmployeeDAOImpl(EntityManager theEntityManager) {
         entityManager = theEntityManager;
     }
@@ -46,8 +45,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Session currentSession = entityManager.unwrap(Session.class);
 
         // get the employee
-        Employee theEmployee =
-                currentSession.get(Employee.class, theId);
+        Employee theEmployee = currentSession.get(Employee.class, theId);
 
         return theEmployee;
     }
@@ -71,9 +69,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Session currentSession = entityManager.unwrap(Session.class);
 
         // delete object with primary key
-        Query theQuery =
-                currentSession.createQuery("delete from Employee where id=:employeeId");
-
+        Query theQuery = currentSession.createQuery("delete from Employee where id=:employeeId");
         theQuery.setParameter("employeeId", theId);
 
         theQuery.executeUpdate();

@@ -4,8 +4,7 @@ import java.util.List;
 import org.springframework.context.annotation.Primary;
 import spring.entity.Employee;
 
-@Primary
-public interface EmployeeDAO {
+public interface EmployeeDAO {  //without implementing JPARepository
 
     public Employee findById(int theId);
 

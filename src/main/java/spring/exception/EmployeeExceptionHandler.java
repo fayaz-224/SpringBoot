@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice//for global exception handling
+@ControllerAdvice //for global exception handling
 public class EmployeeExceptionHandler {
 
     // Add an exception handler for EmpNotFoundException
@@ -18,12 +18,11 @@ public class EmployeeExceptionHandler {
                 exc.getMessage(),
                 System.currentTimeMillis());
 
-        // return ResponseEntity
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
 
-    // Add another exception handler ... to catch any exception (catch all)
+    // to catch any exception (catch all)
     @ExceptionHandler
     public ResponseEntity<EmployeeErrorResponse> handleException(Exception exc) {
 
@@ -33,7 +32,6 @@ public class EmployeeExceptionHandler {
                 exc.getMessage(),
                 System.currentTimeMillis());
 
-        // return ResponseEntity
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 

@@ -1,5 +1,5 @@
---we can create table from entity class itself
---Note: these .sql file has to be in resources, otherwise we need to explicitly mention in application.prop
+--we can create table from entity class itself or using these .sql files
+--Note: these .sql file has to be in resources, otherwise we need to explicitly mention path in application.prop
 --spring.datasource.schema=classpath:Schemafile-location
 --spring.datasource.data=classpath:Datafile-location
 

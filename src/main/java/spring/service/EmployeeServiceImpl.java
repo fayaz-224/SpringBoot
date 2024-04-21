@@ -11,9 +11,9 @@ import spring.entity.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeDAO employeeDAO;
+    private final EmployeeDAO employeeDAO;
 
-    @Autowired
+    @Autowired  //constructor injection
     public EmployeeServiceImpl(EmployeeDAO theEmployeeDAO) {
         employeeDAO = theEmployeeDAO;
     }

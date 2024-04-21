@@ -9,18 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import spring.entity.Employee;
 
-//DAO layer is not mandatory, we can use service layer got bussiness logic
+//DAO layer is not mandatory, we can use service layer for business logic
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
-    // define field for entitymanager which is similar to session factory
-    private EntityManager entityManager;
+    // define field for entityManager which is similar to session - see Readme.md
+    private final EntityManager entityManager;
 
-    // set up constructor injection
+    //constructor injection
     public EmployeeDAOImpl(EntityManager theEntityManager) {
         entityManager = theEntityManager;
     }
-
 
     @Override
     public List<Employee> findAll() {
@@ -57,7 +56,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         // get the current hibernate session
         Session currentSession = entityManager.unwrap(Session.class);
 
-        // save or Update employee
+        //used saveOrUpdate, so it does both operations No need to write separately.
         currentSession.saveOrUpdate(theEmployee);
     }
 

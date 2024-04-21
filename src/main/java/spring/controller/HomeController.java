@@ -15,12 +15,11 @@ import spring.entity.Employee;
 import spring.exception.EmployeeNotFoundException;
 import spring.service.EmployeeService;
 
-
 @RestController
 @RequestMapping("/api")
 public class HomeController {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Autowired    //constructor injection
     public HomeController(EmployeeService theEmployeeService) {
@@ -54,8 +53,8 @@ public class HomeController {
     }
 
 
-    // add or Save new employee
-    @PostMapping("/employees")    //in POSTMAN-->Body-->Raw & Text=JSON(application/json) and send data
+    //add or Save new employee
+    @PostMapping("/employees")    //in POSTMAN-->Body-->Raw & give JSON(application/json) data and send
     public Employee addEmployee(@RequestBody Employee theEmployee) {
 
         // also just in case they pass an id in JSON, set id to 0. This is to force a save of new item, instead of update
@@ -66,8 +65,8 @@ public class HomeController {
     }
 
 
-    // update existing employee
-    @PutMapping("/employees")    //in POSTMAN-->Body-->Raw & Text=JSON(application/json) and send data along with "Id"
+    //update existing employee
+    @PutMapping("/employees")    //in POSTMAN-->Body-->Raw & give JSON(application/json) data and send along with "Id"
     public Employee updateEmployee(@RequestBody Employee theEmployee) {
 
         employeeService.save(theEmployee);
@@ -77,7 +76,7 @@ public class HomeController {
 
     //delete employee
     @DeleteMapping("/employees/{Id}")
-    public String deleteEmployee(@PathVariable("Id") int employeeId) {
+    public String deleteEmployee(@PathVariable("Id") int employeeId) {  //@PathVariable int Id
 
         Employee tempEmployee = employeeService.findById(employeeId);
 

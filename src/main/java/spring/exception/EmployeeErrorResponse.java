@@ -1,13 +1,12 @@
 package spring.exception;
 
-public class EmployeeErrorResponse {//error response format
+public class EmployeeErrorResponse { //Error response format
 
     private int status;
     private String message;
     private long timeStamp;
 
     public EmployeeErrorResponse() {
-
     }
 
     public EmployeeErrorResponse(int status, String message, long timeStamp) {

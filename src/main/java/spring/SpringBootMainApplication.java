@@ -3,7 +3,7 @@ package spring;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//this class should not be placed in default package, and controller class has to be in child package of this.
+//this class should not be placed in default/base package, and controller class has to be in child package of this.
 @SpringBootApplication
 public class SpringBootMainApplication {
 
